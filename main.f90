@@ -49,6 +49,11 @@ program main
            A16(j,k) = rand16
            CALL RANDOM_NUMBER(rand16)
            B16(j,k) = rand16
+
+           C4(j,k)=0
+           C8(j,k)=0
+           C16(j,k)=0
+
         end do
      end do
 
