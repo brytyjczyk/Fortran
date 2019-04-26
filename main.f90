@@ -1,7 +1,7 @@
 program main
 
   !use bettermath
-  !use naivemath
+  use naivemath
   !use dotmath
 
   implicit none
@@ -14,6 +14,8 @@ program main
   real (kind = 4) :: rand4
   real (kind = 8) :: rand8
   real (kind = 16) :: rand16
+  real :: start
+  real :: finish
   
   msize=[10,20,40,80,160,320,640,1280]
 
@@ -57,6 +59,26 @@ program main
         end do
      end do
 
+     call cpu_time(start)
+     C4=naivemull(A4,B4)
+     call cpu_time(finish)
+
+     write(*,*) "naivemath kind=4",  msize(i), " ", finish-start
+
+     call cpu_time(start)
+     C8=naivemull(A8,B8)
+     call cpu_time(finish)
+
+     write(*,*) "naivemath kind=8",  msize(i), " ", finish-start
+
+     call cpu_time(start)
+     C16=naivemull(A16,B16)
+     call cpu_time(finish)
+
+     write(*,*) "naivemath kind=16",  msize(i), " ", finish-start
+     
+
+     
 
      ! dealokowanie tablicy zaalokowaniej
      if(allocated(A4)) deallocate(A4)
