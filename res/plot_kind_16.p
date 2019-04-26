@@ -1,6 +1,6 @@
 unset grid
 set terminal pdfcairo
-set output "wykres_kind4.pdf"
+set output "wykres_kind16.pdf"
 set key box top left
 set multi
 set logscale x
@@ -16,9 +16,9 @@ set xtics font 'Arial,14'
 set ytics font 'Arial,14'
 set termoption dashed
 
-plot "naive_kind4" title "naive"
-replot "better_kind4" title "better"
-replot "dot_kind4" title "dot"
-replot "mat_kind4" title "matmul"
+plot "naive_kind16" title "naive"
+replot "better_kind16" title "better"
+replot "dot_kind16" title "dot"
+replot "mat_kind16" title "matmul"
 
 unset multi
