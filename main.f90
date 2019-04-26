@@ -20,21 +20,21 @@ program main
   msize=[10,20,40,80,160,320,640,1280]
 
   !pliki z wynikami
-  open (unit=1, file = "../res/naive_kind4")
-  open (unit=2, file = "../res/naive_kind8")
-  open (unit=3, file = "../res/naive_kind16")
+  open(unit=10, file = "/home/anna/Fortran/res/naive_kind4", action='write')
+  open(unit=20, file = "/home/anna/Fortran/res/naive_kind8", action='write')
+  open(unit=30, file = "/home/anna/Fortran/res/naive_kind16", action='write')
   
-  open (unit=4, file = "../res/better_kind4")
-  open (unit=5, file = "../res/better_kind8")
-  open (unit=6, file = "../res/better_kind16")
+  open(unit=40, file = "/home/anna/Fortran/res/better_kind4", action='write')
+  open(unit=50, file = "/home/anna/Fortran/res/better_kind8", action='write')
+  open(unit=60, file = "/home/anna/Fortran/res/better_kind16", action='write')
   
-  open (unit=7, file = "../res/dot_kind4")
-  open (unit=8, file = "../res/dot_kind8")
-  open (unit=9, file = "../res/dot_kind16")
+  open(unit=70, file = "/home/anna/Fortran/res/dot_kind4", action='write')
+  open(unit=80, file = "/home/anna/Fortran/res/dot_kind8", action='write')
+  open(unit=90, file = "/home/anna/Fortran/res/dot_kind16", action='write')
   
-  open (unit=10, file = "../res/mat_kind4")
-  open (unit=11, file = "../res/mat_kind8")
-  open (unit=12, file = "../res/mat_kind16")
+  open(unit=93, file = "/home/anna/Fortran/res/mat_kind4", action='write')
+  open(unit=96, file = "/home/anna/Fortran/res/mat_kind8", action='write')
+  open(unit=99, file = "/home/anna/Fortran/res/mat_kind16", action='write')
   
 
   !alokowanie tablic i tworzenie macierzy
@@ -84,21 +84,21 @@ program main
      call cpu_time(finish)
 
      write(*,*) "naivemath kind=4",  msize(i), " ", finish-start
-     write(1,*)  msize(i), " ", finish-start
+     write(10,*)  msize(i), " ", finish-start
 
      call cpu_time(start)
      C8=naivemull(A8,B8)
      call cpu_time(finish)
 
      write(*,*) "naivemath kind=8",  msize(i), " ", finish-start
-     write(2,*)  msize(i), " ", finish-start
+     write(20,*)  msize(i), " ", finish-start
 
      call cpu_time(start)
      C16=naivemull(A16,B16)
      call cpu_time(finish)
 
      write(*,*) "naivemath kind=16",  msize(i), " ", finish-start
-     write(3,*)  msize(i), " ", finish-start
+     write(30,*)  msize(i), " ", finish-start
 
      
      !bettermull
@@ -107,21 +107,21 @@ program main
      call cpu_time(finish)
 
      write(*,*) "bettermath kind=4",  msize(i), " ", finish-start
-     write(4,*)  msize(i), " ", finish-start
+     write(40,*)  msize(i), " ", finish-start
 
      call cpu_time(start)
      C8=bettermull(A8,B8)
      call cpu_time(finish)
 
      write(*,*) "bettermath kind=8",  msize(i), " ", finish-start
-     write(5,*)  msize(i), " ", finish-start
+     write(50,*)  msize(i), " ", finish-start
 
      call cpu_time(start)
      C16=bettermull(A16,B16)
      call cpu_time(finish)
 
      write(*,*) "bettermath kind=16",  msize(i), " ", finish-start
-     write(6,*)  msize(i), " ", finish-start
+     write(60,*)  msize(i), " ", finish-start
 
      
      !dotmull
@@ -130,21 +130,21 @@ program main
      call cpu_time(finish)
 
      write(*,*) "dotmath kind=4",  msize(i), " ", finish-start
-     write(7,*)  msize(i), " ", finish-start
+     write(70,*)  msize(i), " ", finish-start
 
      call cpu_time(start)
      C8=dotmull(A8,B8)
      call cpu_time(finish)
 
      write(*,*) "dotmath kind=8",  msize(i), " ", finish-start
-     write(8,*)  msize(i), " ", finish-start
+     write(80,*)  msize(i), " ", finish-start
 
      call cpu_time(start)
      C16=dotmull(A16,B16)
      call cpu_time(finish)
 
      write(*,*) "dotmath kind=16",  msize(i), " ", finish-start
-     write(9,*)  msize(i), " ", finish-start
+     write(90,*)  msize(i), " ", finish-start
 
      
      !matmul
@@ -153,21 +153,21 @@ program main
      call cpu_time(finish)
 
      write(*,*) "matmul kind=4",  msize(i), " ", finish-start
-     write(10,*)  msize(i), " ", finish-start
+     write(93,*)  msize(i), " ", finish-start
 
      call cpu_time(start)
      C8= matmul(A8,B8)
      call cpu_time(finish)
 
      write(*,*) "matmul kind=8",  msize(i), " ", finish-start
-     write(11,*)  msize(i), " ", finish-start
+     write(96,*)  msize(i), " ", finish-start
 
      call cpu_time(start)
      C16= matmul(A16,B16)
      call cpu_time(finish)
 
      write(*,*) "matmul kind=16",  msize(i), " ", finish-start
-     write(12,*)  msize(i), " ", finish-start
+     write(99,*)  msize(i), " ", finish-start
      
 
      
@@ -186,18 +186,18 @@ program main
      
   end do
 
-  close(1)
-  close(2)
-  close(3)
-  close(4)
-  close(5)
-  close(6)
-  close(7)
-  close(8)
-  close(9)
   close(10)
-  close(11)
-  close(12)
+  close(20)
+  close(30)
+  close(40)
+  close(50)
+  close(60)
+  close(70)
+  close(80)
+  close(90)
+  close(93)
+  close(96)
+  close(99)
 
   
 end program main
