@@ -1,9 +1,9 @@
 module bettermath
 implicit none
   
-  public bettermull
+  public :: bettermull
 
-  private better4, better8, better16
+  private ::  better4, better8, better16
 
   interface bettermull
      procedure better4, better8, better16
@@ -14,10 +14,11 @@ contains
   function better4 (A,B) result C
     real(kind=4), intent(in), dimension(:,:) :: A, B
     real(kind=4), intent(out), dimention(size(A,1), size(B,2)) :: C
+    integer :: i, j, k
     do j=1,size(B,2)
        do k=1, size(A,2)
           do i=1,size(A,1)
-             C(i,j)=C9i,j)+A(i,k)*B(k,j)
+             C(i,j)=C(i,j)+A(i,k)*B(k,j)
           end do
        end do
     end do
@@ -28,7 +29,8 @@ contains
 
   function better8 (A,B) result C
       real(kind=4), intent(in), dimension(:,:) :: A, B
-    real(kind=4), intent(out), dimention(size(A,1), size(B,2)) :: C
+      real(kind=4), intent(out), dimention(size(A,1), size(B,2)) :: C
+      integer :: i, j, k
     do j=1,size(B,2)
        do k=1, size(A,2)
           do i=1,size(A,1)
@@ -40,7 +42,8 @@ contains
 
   function better16 (A, B) result C
       real(kind=4), intent(in), dimension(:,:) :: A, B
-    real(kind=4), intent(out), dimention(size(A,1), size(B,2)) :: C
+      real(kind=4), intent(out), dimention(size(A,1), size(B,2)) :: C
+      integer:: i, j, k
     do j=1,size(B,2)
        do k=1, size(A,2)
           do i=1,size(A,1)
