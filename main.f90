@@ -1,8 +1,8 @@
 program main
 
-  !use bettermath
+  use bettermath
   use naivemath
-  !use dotmath
+  use dotmath
 
   implicit none
 
@@ -59,6 +59,8 @@ program main
         end do
      end do
 
+     !naivemull
+     
      call cpu_time(start)
      C4=naivemull(A4,B4)
      call cpu_time(finish)
@@ -77,8 +79,45 @@ program main
 
      write(*,*) "naivemath kind=16",  msize(i), " ", finish-start
      
+     !bettermull
 
-     
+     call cpu_time(start)
+     C4=bettermull(A4,B4)
+     call cpu_time(finish)
+
+     write(*,*) "bettermath kind=4",  msize(i), " ", finish-start
+
+     call cpu_time(start)
+     C8=bettermull(A8,B8)
+     call cpu_time(finish)
+
+     write(*,*) "bettermath kind=8",  msize(i), " ", finish-start
+
+     call cpu_time(start)
+     C16=bettermull(A16,B16)
+     call cpu_time(finish)
+
+     write(*,*) "bettermath kind=16",  msize(i), " ", finish-start
+
+     !dotmull
+
+     call cpu_time(start)
+     C4=dotmull(A4,B4)
+     call cpu_time(finish)
+
+     write(*,*) "dotmath kind=4",  msize(i), " ", finish-start
+
+     call cpu_time(start)
+     C8=dotmull(A8,B8)
+     call cpu_time(finish)
+
+     write(*,*) "dotmath kind=8",  msize(i), " ", finish-start
+
+     call cpu_time(start)
+     C16=dotmull(A16,B16)
+     call cpu_time(finish)
+
+     write(*,*) "dotmath kind=16",  msize(i), " ", finish-start
 
      ! dealokowanie tablicy zaalokowaniej
      if(allocated(A4)) deallocate(A4)
