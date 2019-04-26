@@ -1,22 +1,24 @@
 program main
 
-  implicit none
+  !use bettermath
+  !use naivemath
+  !use dotmath
 
-  use bettermath
-  use naivemath
-  use dotmath
+  implicit none
 
   real (kind = 4), allocatable, dimension (:,:) :: A4, B4, C4
   real (kind = 8), allocatable, dimension (:,:) :: A8, B8, C8
   real (kind = 16), allocatable, dimension (:,:) :: A16, B16, C16
   integer :: msize(8)
+  integer :: i, j, k
   real (kind = 4) :: rand4
   real (kind = 8) :: rand8
   real (kind = 16) :: rand16
   
   msize=[10,20,40,80,160,320,640,1280]
-  
-  do i=1,8 !alokowanie tablic i tworzenie macierzy
+
+  !alokowanie tablic i tworzenie macierzy
+  do i=1,8 
      
      allocate(A4(msize(i),msize(i)))
      allocate(B4(msize(i),msize(i)))
@@ -52,17 +54,17 @@ program main
 
 
      ! dealokowanie tablicy zaalokowaniej
-     if(allocated(A4) deallocate(A4))
-     if(allocated(B4) deallocate(B4))
-     if(allocated(C4) deallocate(C4))
+     if(allocated(A4)) deallocate(A4)
+     if(allocated(B4)) deallocate(B4)
+     if(allocated(C4)) deallocate(C4)
 
-     if(allocated(A8) deallocate(A8))
-     if(allocated(B8) deallocate(B8))
-     if(allocated(C8) deallocate(C8))
+     if(allocated(A8)) deallocate(A8)
+     if(allocated(B8)) deallocate(B8)
+     if(allocated(C8)) deallocate(C8)
 
-     if(allocated(A16) deallocate(A16))
-     if(allocated(B16) deallocate(B16))
-     if(allocated(C16) deallocate(C16))
+     if(allocated(A16)) deallocate(A16)
+     if(allocated(B16)) deallocate(B16)
+     if(allocated(C16)) deallocate(C16)
      
   end do
     
